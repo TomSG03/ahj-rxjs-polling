@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #999;
+  font-family: "PT Sans", Calibri, Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  color: #1e3c4d;
+  font-size: 1.2rem;
+  user-select: none;
+  position: relative;
+}
+
+.desk {
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  width: 700px;
+
+  flex-direction: column;
+}
+
+.desk-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.del-mail {
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  padding: 10px;
+}
+
+.desk-body {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mail {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  border: solid 1px gray;
+  justify-content: space-between;
+}
+
+.mail:nth-child(1+n) {
+  border-bottom: none;
+}
+
+.mail-from {
+  width: 50%;
+}
+
+.mail-subj {
+  width: 32%;
+}
+
+.mail-res {
+  width: 18%;
+  text-align: right;
+}

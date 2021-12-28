@@ -3,7 +3,7 @@
 ## [Домашнее задание к лекции «RxJS»](https://github.com/netology-code/ahj-homeworks/tree/simplification/rxjs)
 
 - [x] Polling
-- [x] [RxJS - Server](https://netology-ahj-http-heroku.herokuapp.com/messages/unread)
+- [x] [RxJS - Server](https://github.com/TomSG03/ahj-http-helpdesk-backend)
 
 
 ## [Gh-Pages](https://tomsg03.github.io/ahj-rxjs-polling)

@@ -5,4 +5,7 @@
 - [x] Polling
 
 
-## [Gh-Pages]()
+## [Gh-Pages](https://tomsg03.github.io/ahj-rxjs-polling/)
+
+---
+[Спискок задач](https://github.com/TomSG03/ahs-homeworks-list)

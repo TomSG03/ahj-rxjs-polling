@@ -3,26 +3,27 @@ import { map, catchError, switchMap } from 'rxjs/operators';
 import { of, interval } from 'rxjs';
 
 export default class MailDesk {
-  constructor(domElement, server) {
+  constructor(domElement, server, time) {
     this.domElement = domElement;
     this.server = server;
-    this.interval = 5000;
+    this.time = time;
 
     this.init();
   }
 
   begin() {
-    const data$ = interval(this.interval).pipe(
+    const data$ = interval(this.time).pipe(
       switchMap(() => ajax(`${this.server}/messages/unread`).pipe(
         map((userResponse) => userResponse.response),
-        catchError(() => of({ timestamp: Date.now(), messages: [] })),
+        catchError(() => of({ messages: [] })),
       )),
     );
-    data$.subscribe((result) => {
-      const resultData = result || { timestamp: Date.now(), messages: [] };
-      for (const message of resultData.messages) {
-        this.showMessage(message);
-      }
+    data$.subscribe({
+      next: (response) => {
+        for (const message of response.messages) {
+          this.showMessage(message);
+        }
+      },
     });
   }
 
@@ -43,7 +44,7 @@ export default class MailDesk {
   setFormatData(message) {
     const data = {
       from: message.from,
-      subject: message.subject.length > 15 ? message.subject.substr(0, 14) : message.subject,
+      subject: message.subject.length > 15 ? `${message.subject.substr(0, 14)}...` : message.subject,
       received: `${new Date(message.received).toLocaleString([], { hour: '2-digit', minute: '2-digit' })} ${new Date(message.received).toLocaleString([], { day: '2-digit', month: '2-digit', year: '2-digit' })}`,
     };
     return data;

@@ -53,6 +53,7 @@ body {
   flex-direction: row;
   border: solid 1px gray;
   justify-content: space-between;
+  margin-bottom: -1px;
 }
 
 .mail:nth-child(1+n) {

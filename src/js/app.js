@@ -6,5 +6,5 @@ const domElmt = document.querySelector('.desk');
 const servetPath = 'http://localhost:7070';
 const taskName = '/ahj-rxjs';
 
-const mDesk = new MailDesk(domElmt, `${servetPath}${taskName}`);
+const mDesk = new MailDesk(domElmt, `${servetPath}${taskName}`, 5000);
 mDesk.begin();

@@ -15,13 +15,15 @@ export default class MailDesk {
     const data$ = interval(this.time).pipe(
       switchMap(() => ajax(`${this.server}/messages/unread`).pipe(
         map((userResponse) => userResponse.response),
-        catchError(() => of({ messages: [] })),
+        catchError((error) => of(error)),
       )),
     );
     data$.subscribe({
       next: (response) => {
-        for (const message of response.messages) {
-          this.showMessage(message);
+        if (response.status === 'ok') {
+          for (const message of response.messages) {
+            this.showMessage(message);
+          }
         }
       },
     });
